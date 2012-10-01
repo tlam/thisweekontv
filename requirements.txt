@@ -1,6 +1,6 @@
 Django==1.4.2
-south
-lxml
-psycopg2
-requests
+south==0.7.6
+lxml==2.3.6
+psycopg2==2.4.5
+requests==0.14.0
 dj-database-url==0.2.1
