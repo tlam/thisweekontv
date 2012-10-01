@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post">
+  <ul id="show-edit">
+    <li><span>Name: </span><input type="text" name="show-name" /></li>
+    <li><span>Url: </span><input type="text" name="show-url" /></li>
+    <li><span>Season: </span><input type="text" name="show-season" /></li>
+    <li><span>Last Seen: </span><input type="text" id="show-last-seen" name="show-last-seen" /></li>
+  </ul>
+  <input type="submit" value="Add" />
+</form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ show.name }}, Season {{ show.season }} - Episodes</h2>
+
+<ul id="episodes">
+{% for episode in episodes %}
+  <li>
+    {{ episode }}
+    {% ifequal episode.number last_seen %} - Last Seen{% endifequal %}
+    {% if episode.is_new %} - NEW{% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}

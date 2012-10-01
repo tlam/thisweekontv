@@ -1,0 +1,85 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.95em;
+  text-align: center;
+}
+
+#content, #navigation-footer {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#shows {
+  width: 350px;
+}
+
+#shows li {
+  border-color: #E5E5E5;
+  border-style: none none solid;
+  border-width: medium medium 1px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.show-name {
+  width: 17em;
+  display: inline-block;
+}
+
+.day {
+  float: left;
+  width: 9.3em;
+}
+
+.day h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.day .date {
+  color: #BBBBBB;
+  font-size: small;
+  font-weight: bold;
+}
+
+.day h4 {
+  letter-spacing: 0.1em;
+  padding-top: 0.4em;
+}
+
+.day ol {
+  padding-left: 1.4em;
+  font-size: 0.95em;
+}
+
+.day ol li {
+  margin-bottom: 0.2em;
+}
+
+.day ol li span {
+ font-size: 0.7em;
+}
+
+.today {
+  background-color: #F0F0F0;
+}
+
+#week {
+  overflow: auto;
+}
+
+#navigation-footer {
+  clear: both;
+  padding-top: 1em;
+  text-align: center;
+}

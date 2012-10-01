@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+There are {{ shows|length }} show{{ shows|pluralize }}.
+
+<ol>
+{% for show in shows %}
+  <li><a href="{% url shows:index show.id %}">{{ show.name }}</a></li>
+{% endfor %}
+</ol>
+{% endblock %}

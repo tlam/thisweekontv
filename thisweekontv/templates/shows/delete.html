@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+Are you sure you want to delete <em>{{ show }}</em>?
+
+<form action="" method="post">
+  <div>
+    <input type="submit" value="Delete Episodes" name="delete-episodes" />
+  </div>
+  <div>
+    <input type="submit" value="Delete All" name="delete-all" />
+  </div>
+</form>
+
+{% endblock %}
