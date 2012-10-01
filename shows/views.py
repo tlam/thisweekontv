@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render
 
 from shows.models import Show
@@ -17,6 +18,7 @@ def index(request, show_id):
     )
 
 
+@login_required(login_url='/admin/')
 def configuration(request):
     if request.method == 'POST':
         show_id = 0

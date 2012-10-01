@@ -83,3 +83,24 @@ a:hover {
   padding-top: 1em;
   text-align: center;
 }
+
+ul.messages {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul.messages li {
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+ul.messages li.success {
+  background-color: #75845C;
+}
+
+ul.messages li.error {
+  background-color: red;
+}

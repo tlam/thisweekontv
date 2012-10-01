@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 
 from django.db import models
 from lxml import etree
@@ -7,6 +7,8 @@ import requests
 from episodes.models import Episode
 from home.models import TVConfiguration
 
+
+# TODO: mark episode as seen with boolean flag
 
 class Show(models.Model):
     name = models.CharField(max_length=100)
@@ -36,11 +38,17 @@ class Show(models.Model):
             else:
                 seasons[season] = [episode_dict]
 
+        import pprint
         current_season = str(self.season)
         for episode in seasons[current_season]:
+            episode_name = episode['EpisodeName']
+            first_aired = episode['FirstAired']
+            if not all([episode_name, first_aired]):
+                continue
+            pprint.pprint(episode)
             Episode.objects.get_or_create(
-                name=episode['EpisodeName'],
+                name=episode_name,
                 show=self,
                 number=int(episode['EpisodeNumber']),
-                air_date=datetime.strptime(episode['FirstAired'], '%Y-%m-%d'),
+                air_date=datetime.strptime(first_aired, '%Y-%m-%d'),
             )

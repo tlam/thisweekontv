@@ -4,9 +4,29 @@
 
 There are {{ shows|length }} show{{ shows|pluralize }}.
 
-<ol>
+<ol id="shows">
 {% for show in shows %}
-  <li><a href="{% url shows:index show.id %}">{{ show.name }}</a></li>
+  <li><a class="show-name" href="{% url shows:index show.id %}">{{ show }}</a> &gt;
 {% endfor %}
 </ol>
+
+
+<div id="week">
+{% for day in this_week %}
+<div class="day {% ifequal day.day today %}today{% endifequal %}">
+  <h4>{{ day.day|date:"l" }}</h4>
+  <div class="date">{{ day.day|date:"M d, Y" }}</div>
+  <ol>
+  {% for episode in day.episodes %}
+    <li>{{ episode.show.name }}, <span>{{ episode.number }}</span></li>
+  {% endfor %}
+  </ol>
+</div>
+{% endfor %}
+</div>
+
+<p>
+<a href="?days={{ days }}">Next Week</a>
+</p>
+
 {% endblock %}
