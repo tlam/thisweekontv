@@ -3,3 +3,4 @@ south
 lxml
 psycopg2
 requests
+dj-database-url==0.2.1

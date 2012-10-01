@@ -19,6 +19,9 @@ class Show(models.Model):
     def __unicode__(self):
         return u'%s' % self.name
 
+    def to_watch(self):
+        return self.episode_set.filter(has_seen=False, air_date__lte=date.today())
+
     def refresh(self):
         api_key = TVConfiguration.objects.get().api_key
         url = 'http://www.thetvdb.com/api/%s/series/%i/all/en.xml' % (api_key, self.tvdb_id)

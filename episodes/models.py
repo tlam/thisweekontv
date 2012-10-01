@@ -8,12 +8,16 @@ class Episode(models.Model):
     show = models.ForeignKey('shows.Show')
     number = models.IntegerField()
     air_date = models.DateField()
+    has_seen = models.BooleanField()
 
     def __unicode__(self):
-        return '%i - %s' % (self.number, self.air_date)
+        return '%s: %i - %s' % (self.show, self.number, self.air_date)
 
     def description(self):
         return '%s, %i' % (self.show.name, self.number)
+
+    def display_number(self):
+        return (self.show.season * 100) + self.number
 
     def is_new(self):
         '''

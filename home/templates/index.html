@@ -6,7 +6,7 @@ There are {{ shows|length }} show{{ shows|pluralize }}.
 
 <ol id="shows">
 {% for show in shows %}
-  <li><a class="show-name" href="{% url shows:index show.id %}">{{ show }}</a> &gt;
+  <li><a class="show-name" href="{% url shows:index show.id %}">{{ show }}</a> &gt; {{ show.to_watch|length }} unwatched
 {% endfor %}
 </ol>
 
@@ -18,7 +18,7 @@ There are {{ shows|length }} show{{ shows|pluralize }}.
   <div class="date">{{ day.day|date:"M d, Y" }}</div>
   <ol>
   {% for episode in day.episodes %}
-    <li>{{ episode.show.name }}, <span>{{ episode.number }}</span></li>
+    <li>{{ episode.show.name }}, <span>{{ episode.display_number }}</span></li>
   {% endfor %}
   </ol>
 </div>
