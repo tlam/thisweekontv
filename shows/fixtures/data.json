@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "shows.show", "fields": {"season": 8, "tvdb_id": 75760, "name": "How I Met Your Mother", "last_seen": 724}}, {"pk": 2, "model": "shows.show", "fields": {"season": 6, "tvdb_id": 80270, "name": "Burn Notice", "last_seen": 512}}, {"pk": 3, "model": "shows.show", "fields": {"season": 6, "tvdb_id": 80379, "name": "Big Bang Theory", "last_seen": 524}}]
