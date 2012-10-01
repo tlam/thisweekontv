@@ -10,6 +10,9 @@ class Episode(models.Model):
     air_date = models.DateField()
     has_seen = models.BooleanField()
 
+    class Meta:
+        ordering = ['show', 'air_date']
+
     def __unicode__(self):
         return '%s: %i - %s' % (self.show, self.number, self.air_date)
 

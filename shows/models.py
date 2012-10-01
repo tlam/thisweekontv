@@ -8,13 +8,14 @@ from episodes.models import Episode
 from home.models import TVConfiguration
 
 
-# TODO: mark episode as seen with boolean flag
-
 class Show(models.Model):
     name = models.CharField(max_length=100)
     tvdb_id = models.IntegerField()
     season = models.IntegerField()
     last_seen = models.IntegerField()
+
+    class Meta:
+        ordering = ['name']
 
     def __unicode__(self):
         return u'%s' % self.name

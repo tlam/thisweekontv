@@ -3,11 +3,28 @@
 {% block content %}
 <h2>{{ show.name }}, Season {{ show.season }} - Episodes</h2>
 
+<table class="episodes">
+  <tr>
+    <th>Episode</th>
+    <th>Name</th>
+    <th>First Aired</th>
+    <th>Status</th>
+  </tr>
 {% for episode in episodes %}
-<div>
-  {{ episode }}
-  {% ifequal episode.number last_seen %} - Last Seen{% endifequal %}
-  {% if episode.is_new %} - NEW{% endif %}
-</div>
+  {% cycle 'even' 'odd' as row_colour silent %}
+  <tr class="{{ row_colour }}">
+    <td>{{ episode.number }}</td>
+    <td>{{ episode.name }}</td>
+    <td>{{ episode.air_date }}</td>
+    <td>
+      {% if episode.has_seen %}
+        Watched
+      {% elif episode.is_new %}
+        NEW
+      {% endif %}
+    </td>
+  </tr>
 {% endfor %}
+</table>
+
 {% endblock %}

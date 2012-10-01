@@ -104,3 +104,45 @@ ul.messages li.success {
 ul.messages li.error {
   background-color: red;
 }
+
+table.episodes {
+  border-collapse: collapse;
+  margin: 20px;
+  color: #666;
+  -moz-border-radius: 3px;
+  -moz-box-shadow: 0 1px 2px #d1d1d1;
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px #d1d1d1;
+  background: #eaebec;
+  border: #ccc 1px solid;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px #d1d1d1;
+  text-shadow: 1px 1px 0px #fff;
+}
+
+table.episodes tr {
+  padding-left: 20px;
+  text-align: center
+}
+
+table.episodes tr.even td {
+  background: #f6f6f6;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+  background: -moz-linear-gradient(top, #f8f8f8, #f6f6f6);
+}
+
+table.episodes th {
+  padding: 21px 25px 22px 25px;
+  border-bottom: 1px solid #e0e0e0; border-top: 1px solid #fafafa;
+  background: #ededed;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+  background: -moz-linear-gradient(top, #ededed, #ebebeb);
+}
+
+table.episodes tr td {
+  padding: 18px;
+  border-bottom: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0; border-top: 1px solid #ffffff;
+  background: #fafafa;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+  background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
+}
