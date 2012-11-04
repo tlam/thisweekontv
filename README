@@ -1,1 +1,5 @@
-This Week on TV Django app to be hosted on Heroku.
+h1. Deploy
+
+    git push heroku master
+
+

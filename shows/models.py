@@ -1,5 +1,6 @@
 from datetime import date, datetime
 
+from django.core.urlresolvers import reverse
 from django.db import models
 from lxml import etree
 import requests
@@ -42,17 +43,23 @@ class Show(models.Model):
             else:
                 seasons[season] = [episode_dict]
 
-        import pprint
         current_season = str(self.season)
         for episode in seasons[current_season]:
             episode_name = episode['EpisodeName']
             first_aired = episode['FirstAired']
             if not all([episode_name, first_aired]):
                 continue
-            pprint.pprint(episode)
-            Episode.objects.get_or_create(
-                name=episode_name,
-                show=self,
+            defaults = {
+                'name': episode_name,
+                'air_date': datetime.strptime(first_aired, '%Y-%m-%d'),
+            }
+            obj, created = Episode.objects.get_or_create(
                 number=int(episode['EpisodeNumber']),
-                air_date=datetime.strptime(first_aired, '%Y-%m-%d'),
+                show=self,
+                defaults=defaults,
             )
+
+            if not created:
+                obj.name = defaults['name']
+                obj.air_date = defaults['air_date']
+                obj.save()

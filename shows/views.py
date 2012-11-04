@@ -7,6 +7,11 @@ from shows.models import Show
 
 def index(request, show_id):
     show = get_object_or_404(Show, pk=show_id)
+
+    if request.method == 'POST':
+        show.refresh()
+        messages.success(request, 'Show updated')
+
     context = {
         'episodes': show.episode_set.order_by('air_date'),
         'show': show,
