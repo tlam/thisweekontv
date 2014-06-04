@@ -1,3 +1,4 @@
 *.pyc
 *.swp
 thisweekontv/dev_settings.py
+staticfiles

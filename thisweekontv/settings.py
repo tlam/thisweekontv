@@ -2,7 +2,7 @@ import os
 
 import dj_database_url
 
-ROOT_PATH = os.path.dirname(__file__)
+ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -15,7 +15,7 @@ MANAGERS = ADMINS
 
 # Using dj_database_url to host on Heroku
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://localhost')
+    'default': dj_database_url.config()
 }
 
 # Local time zone for this installation. Choices can be found here:
@@ -45,7 +45,7 @@ USE_TZ = True
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(ROOT_PATH, 'static_files')
+STATIC_ROOT = 'staticfiles'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -141,6 +141,9 @@ LOGGING = {
         },
     }
 }
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+ALLOWED_HOSTS = ['*']
 
 try:
     from dev_settings import *
