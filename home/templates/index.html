@@ -6,7 +6,7 @@ There are {{ shows|length }} show{{ shows|pluralize }}.
 
 <ol id="shows">
 {% for show in shows %}
-  <li><a class="show-name" href="{% url shows:index show.id %}">{{ show }}</a> &gt; {{ show.to_watch|length }} unwatched
+  <li><a class="show-name" href="{% url 'shows:index' show.id %}">{{ show }}</a> &gt; {{ show.to_watch|length }} unwatched
 {% endfor %}
 </ol>
 

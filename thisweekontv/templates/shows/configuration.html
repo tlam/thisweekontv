@@ -6,7 +6,7 @@
 {% for show in shows %}
 <form action="" method="post">{% csrf_token %}
   <li>
-    <a href="{% url shows:index show.id %}">{{ show }}</a> <input type="submit" name="show-{{ show.id }}" value="Update" />
+    <a href="{% url 'shows:index' show.id %}">{{ show }}</a> <input type="submit" name="show-{{ show.id }}" value="Update" />
   </li>
 {% endfor %}
 </ol>
