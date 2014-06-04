@@ -8,7 +8,7 @@ class Episode(models.Model):
     show = models.ForeignKey('shows.Show')
     number = models.IntegerField()
     air_date = models.DateField()
-    has_seen = models.BooleanField()
+    has_seen = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['show', 'air_date']
