@@ -1,1 +1,1 @@
-web: gunicorn thisweekontv.wsgi -b 0.0.0.0:$PORT
+web: gunicorn thisweekontv.wsgi
